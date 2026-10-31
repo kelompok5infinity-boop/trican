@@ -1,0 +1,1150 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kegiatan | Gereja AMIN Jemaat Helefanikha</title>
+
+    <!-- BOOTSTRAP 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- BOOTSTRAP ICONS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --maroon: #5b101d;
+            --maroon-dark: #490b17;
+            --gold: #f5c65f;
+            --cream: #f7efed;
+            --text: #32151a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            background: var(--cream);
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 3px 15px rgba(0,0,0,.05);
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-brand img {
+            width: 55px;
+            height: 75px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            color: var(--maroon);
+            font-size: 19px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .navbar-nav .nav-link {
+            color: #211719;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 0 9px;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--maroon);
+        }
+
+        .btn-jemaat {
+            background: var(--gold);
+            color: var(--maroon) !important;
+            border-radius: 30px;
+            padding: 11px 22px !important;
+            font-weight: 700 !important;
+        }
+
+        .btn-jemaat:hover {
+            background: #eab747;
+        }
+
+        /* HEADER */
+
+        .page-header {
+            background: linear-gradient(120deg, var(--maroon), #791e2e);
+            color: white;
+            text-align: center;
+            padding: 65px 15px;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .page-header p {
+            color: #f5dfe1;
+            font-size: 15px;
+        }
+
+        .breadcrumb {
+            justify-content: center;
+            margin-top: 18px;
+            margin-bottom: 0;
+        }
+
+        .breadcrumb-item,
+        .breadcrumb-item a {
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: white;
+        }
+
+        /* INTRO */
+
+        .intro {
+            background: white;
+            padding: 45px 0;
+            text-align: center;
+        }
+
+        .intro h2 {
+            color: var(--maroon);
+            font-size: 29px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .intro p {
+            color: #75676a;
+            font-size: 14px;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.9;
+        }
+
+        /* SECTION TITLE */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            color: var(--maroon);
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .section-title p {
+            color: #75676a;
+            font-size: 14px;
+        }
+
+        /* KEGIATAN */
+
+        .activities {
+            padding: 65px 0;
+            background: var(--cream);
+        }
+
+        .activity-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 100%;
+            box-shadow: 0 8px 25px rgba(0,0,0,.07);
+            transition: .3s;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,.12);
+        }
+
+        .activity-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .activity-content {
+            padding: 23px;
+        }
+
+        .activity-content h5 {
+            color: var(--maroon);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .activity-content p {
+            color: #75676a;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .activity-date {
+            color: #a47726;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .activity-badge {
+            display: inline-block;
+            background: #fff2d3;
+            color: var(--maroon);
+            padding: 6px 13px;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        /* JENIS KEGIATAN */
+
+        .category {
+            padding: 65px 0;
+            background: white;
+        }
+
+        .category-card {
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            background: #fffaf0;
+            border: 1px solid #f1dfb8;
+            height: 100%;
+            transition: .3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .category-card i {
+            font-size: 38px;
+            color: #b1842e;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .category-card h5 {
+            color: var(--maroon);
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+        .category-card p {
+            font-size: 13px;
+            color: #75676a;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        /* JADWAL */
+
+        .agenda {
+            padding: 65px 0;
+            background: var(--cream);
+        }
+
+        .agenda-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 7px 20px rgba(0,0,0,.05);
+        }
+
+        .agenda-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 5px;
+            border-bottom: 1px solid #eee3df;
+        }
+
+        .agenda-item:last-child {
+            border-bottom: none;
+        }
+
+        .date-box {
+            min-width: 65px;
+            height: 70px;
+            background: var(--maroon);
+            border-radius: 12px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .date-box strong {
+            color: var(--gold);
+            font-size: 22px;
+        }
+
+        .date-box span {
+            font-size: 11px;
+        }
+
+        .agenda-info h5 {
+            color: var(--maroon);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .agenda-info p {
+            font-size: 12px;
+            color: #75676a;
+            margin-bottom: 0;
+        }
+
+        /* DOKUMENTASI */
+
+        .documentation {
+            padding: 65px 0;
+            background: white;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 14px;
+            transition: .3s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* AJAKAN */
+
+        .invitation {
+            background: var(--maroon);
+            padding: 55px 15px;
+            text-align: center;
+            color: white;
+        }
+
+        .invitation h2 {
+            color: var(--gold);
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .invitation p {
+            font-size: 14px;
+            color: #f5dfe1;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--maroon);
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .btn-gold:hover {
+            background: white;
+            color: var(--maroon);
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--maroon-dark);
+            color: white;
+            text-align: center;
+            padding: 22px 10px;
+            font-size: 13px;
+        }
+
+        footer span {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 991px) {
+
+            .navbar-nav {
+                padding-top: 15px;
+            }
+
+            .navbar-nav .nav-link {
+                margin: 5px 0;
+            }
+
+        }
+
+        @media(max-width: 576px) {
+
+            .brand-text {
+                font-size: 15px;
+            }
+
+            .navbar-brand img {
+                width: 43px;
+                height: 60px;
+            }
+
+            .page-header h1 {
+                font-size: 28px;
+            }
+
+            .section-title h2 {
+                font-size: 26px;
+            }
+
+            .intro h2 {
+                font-size: 23px;
+            }
+
+            .agenda-item {
+                gap: 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+
+            <img src="assets/logo-gereja.jpg" alt="Logo Gereja">
+
+            <div class="brand-text">
+                GEREJA AMIN<br>
+                JEMAAT<br>
+                HELEFANIKHA
+            </div>
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="tentang.html">Tentang Kami</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ibadah.html">Ibadah</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="kegiatan.html">Kegiatan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="galeri.html">Galeri</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kontak.html">Kontak</a>
+                </li>
+
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+
+                    <a class="nav-link btn-jemaat" href="data-jemaat.html">
+                        <i class="bi bi-people me-2"></i>
+                        Data Jemaat
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HEADER ================= -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>KEGIATAN GEREJA</h1>
+
+        <p>
+            Informasi kegiatan dan pelayanan
+            Gereja AMIN Jemaat Helefanikha
+        </p>
+
+        <nav aria-label="breadcrumb">
+
+            <ol class="breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="index.html">Beranda</a>
+                </li>
+
+                <li class="breadcrumb-item active">
+                    Kegiatan
+                </li>
+
+            </ol>
+
+        </nav>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="intro">
+
+    <div class="container">
+
+        <h2>Bersama Bertumbuh dan Melayani</h2>
+
+        <p>
+            Gereja AMIN Jemaat Helefanikha melaksanakan
+            berbagai kegiatan rohani, sosial, dan
+            persekutuan untuk mempererat hubungan
+            antarjemaat serta meningkatkan pertumbuhan iman.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DAFTAR KEGIATAN ================= -->
+
+<section class="activities">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>KEGIATAN KAMI</h2>
+
+            <p>
+                Berbagai kegiatan dalam kehidupan bergereja
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+
+            <!-- KEGIATAN 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="activity-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1507692049790-de58290a4334?w=800"
+                        alt="Ibadah bersama">
+
+                    <div class="activity-content">
+
+                        <span class="activity-badge">
+                            Kerohanian
+                        </span>
+
+                        <h5>Ibadah Mingguan</h5>
+
+                        <p>
+                            Kegiatan ibadah bersama seluruh
+                            jemaat untuk memuji Tuhan,
+                            berdoa, dan mendengarkan firman-Nya.
+                        </p>
+
+                        <div class="activity-date">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            Setiap Hari Minggu
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEGIATAN 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="activity-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800"
+                        alt="Persekutuan pemuda">
+
+                    <div class="activity-content">
+
+                        <span class="activity-badge">
+                            Pemuda
+                        </span>
+
+                        <h5>Persekutuan Pemuda</h5>
+
+                        <p>
+                            Kegiatan persekutuan bagi generasi
+                            muda untuk membangun iman,
+                            persahabatan, dan kebersamaan.
+                        </p>
+
+                        <div class="activity-date">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            Sesuai Jadwal Pemuda
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEGIATAN 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="activity-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=800"
+                        alt="Pendalaman Alkitab">
+
+                    <div class="activity-content">
+
+                        <span class="activity-badge">
+                            Kerohanian
+                        </span>
+
+                        <h5>Pendalaman Alkitab</h5>
+
+                        <p>
+                            Kegiatan mempelajari firman Tuhan
+                            bersama untuk meningkatkan
+                            pemahaman dan kedewasaan iman.
+                        </p>
+
+                        <div class="activity-date">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            Sesuai Jadwal Gereja
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEGIATAN 4 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="activity-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800"
+                        alt="Kegiatan sosial">
+
+                    <div class="activity-content">
+
+                        <span class="activity-badge">
+                            Sosial
+                        </span>
+
+                        <h5>Pelayanan Sosial</h5>
+
+                        <p>
+                            Kegiatan membantu sesama dan
+                            memberikan perhatian kepada
+                            masyarakat yang membutuhkan.
+                        </p>
+
+                        <div class="activity-date">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            Sesuai Program Gereja
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEGIATAN 5 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="activity-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800"
+                        alt="Sekolah minggu">
+
+                    <div class="activity-content">
+
+                        <span class="activity-badge">
+                            Anak-anak
+                        </span>
+
+                        <h5>Sekolah Minggu</h5>
+
+                        <p>
+                            Pembinaan rohani anak-anak melalui
+                            cerita Alkitab, doa, pujian,
+                            dan kegiatan edukatif.
+                        </p>
+
+                        <div class="activity-date">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            Sesuai Jadwal Sekolah Minggu
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- KEGIATAN 6 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="activity-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800"
+                        alt="Kegiatan kebersamaan jemaat">
+
+                    <div class="activity-content">
+
+                        <span class="activity-badge">
+                            Persekutuan
+                        </span>
+
+                        <h5>Kebersamaan Jemaat</h5>
+
+                        <p>
+                            Kegiatan mempererat hubungan
+                            kekeluargaan dan persaudaraan
+                            di antara seluruh anggota jemaat.
+                        </p>
+
+                        <div class="activity-date">
+                            <i class="bi bi-calendar3 me-2"></i>
+                            Sesuai Agenda Gereja
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= KATEGORI KEGIATAN ================= -->
+
+<section class="category">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>BIDANG KEGIATAN</h2>
+
+            <p>
+                Berbagai bidang kegiatan dan pelayanan gereja
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="category-card">
+
+                    <i class="bi bi-book-half"></i>
+
+                    <h5>Kerohanian</h5>
+
+                    <p>
+                        Ibadah, doa bersama,
+                        dan pendalaman Alkitab.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="category-card">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <h5>Pemuda</h5>
+
+                    <p>
+                        Persekutuan dan pembinaan
+                        generasi muda gereja.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="category-card">
+
+                    <i class="bi bi-heart-fill"></i>
+
+                    <h5>Sosial</h5>
+
+                    <p>
+                        Pelayanan dan kepedulian
+                        terhadap sesama.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="category-card">
+
+                    <i class="bi bi-music-note-beamed"></i>
+
+                    <h5>Pujian</h5>
+
+                    <p>
+                        Pelayanan musik dan
+                        pujian dalam ibadah.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AGENDA KEGIATAN ================= -->
+
+<section class="agenda">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>AGENDA KEGIATAN</h2>
+
+            <p>
+                Contoh susunan agenda kegiatan gereja
+            </p>
+
+        </div>
+
+
+        <div class="agenda-box">
+
+
+            <div class="agenda-item">
+
+                <div class="date-box">
+
+                    <strong>01</strong>
+                    <span>MINGGU</span>
+
+                </div>
+
+                <div class="agenda-info">
+
+                    <h5>Ibadah Mingguan</h5>
+
+                    <p>
+                        Pukul 09.00 WIB |
+                        Gedung Gereja Utama
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="agenda-item">
+
+                <div class="date-box">
+
+                    <strong>02</strong>
+                    <span>RABU</span>
+
+                </div>
+
+                <div class="agenda-info">
+
+                    <h5>Doa dan Pendalaman Alkitab</h5>
+
+                    <p>
+                        Pukul 18.30 WIB |
+                        Tempat sesuai pengumuman gereja
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="agenda-item">
+
+                <div class="date-box">
+
+                    <strong>03</strong>
+                    <span>JUMAT</span>
+
+                </div>
+
+                <div class="agenda-info">
+
+                    <h5>Persekutuan Pemuda</h5>
+
+                    <p>
+                        Pukul 19.00 WIB |
+                        Tempat sesuai pengumuman gereja
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <p class="text-center mt-3 small text-secondary">
+            * Agenda di atas merupakan contoh. Tanggal dan jadwal
+            aktual perlu disesuaikan dengan pengumuman pengurus gereja.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= DOKUMENTASI ================= -->
+
+<section class="documentation">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>DOKUMENTASI KEGIATAN</h2>
+
+            <p>
+                Momen kebersamaan dan pelayanan jemaat
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?w=800"
+                    class="gallery-img"
+                    alt="Dokumentasi ibadah gereja">
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800"
+                    class="gallery-img"
+                    alt="Dokumentasi persekutuan">
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800"
+                    class="gallery-img"
+                    alt="Dokumentasi pelayanan sosial">
+
+            </div>
+
+        </div>
+
+        <div class="text-center mt-4">
+
+            <a href="galeri.html" class="btn btn-outline-dark rounded-pill px-4">
+
+                <i class="bi bi-images me-2"></i>
+                Lihat Semua Galeri
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= AJAKAN ================= -->
+
+<section class="invitation">
+
+    <div class="container">
+
+        <h2>
+            Mari Bergabung dalam Kegiatan Gereja
+        </h2>
+
+        <p>
+            Bersama kita membangun persekutuan,
+            memperkuat iman, dan melayani sesama.
+        </p>
+
+        <a href="kontak.html" class="btn-gold">
+
+            <i class="bi bi-telephone me-2"></i>
+            Hubungi Kami
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <p class="mb-1">
+
+            © 2026
+            <span>Gereja AMIN Jemaat Helefanikha</span>
+
+        </p>
+
+        <p class="mb-0">
+
+            Jln. Helefanikha, Kecamatan Gunungsitoli Idanoi,
+            Kota Gunungsitoli
+
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- BOOTSTRAP JAVASCRIPT -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

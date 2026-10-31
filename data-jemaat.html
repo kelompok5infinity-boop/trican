@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Jemaat | Gereja AMIN Jemaat Helefanikha</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --maroon: #720f20;
+            --dark-maroon: #4b0915;
+            --gold: #d9ad55;
+            --cream: #fffaf2;
+            --text: #333333;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--maroon);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--gold);
+        }
+
+        .navbar-brand img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            padding: 3px;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,.85);
+            font-size: 13px;
+            font-weight: 500;
+            margin-left: 12px;
+            transition: .3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .page-hero {
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(50, 4, 14, .85), rgba(50, 4, 14, .85)),
+                url('assets/gereja.jpg') center/cover no-repeat;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(30px, 5vw, 45px);
+            font-weight: 800;
+        }
+
+        .page-hero p {
+            color: #f0e5e5;
+            max-width: 650px;
+            margin: 15px auto 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .breadcrumb {
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .breadcrumb-item,
+        .breadcrumb-item a {
+            color: #f1d99e;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: white;
+        }
+
+        /* SECTION */
+        .section-padding {
+            padding: 65px 0;
+        }
+
+        .section-label {
+            color: var(--maroon);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--dark-maroon);
+            font-size: 30px;
+            font-weight: 800;
+            margin-top: 8px;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 4px;
+            background: var(--gold);
+            margin: 15px auto 20px;
+            border-radius: 5px;
+        }
+
+        /* STATISTICS */
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 23px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+            height: 100%;
+            transition: .3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            background: #f8e9eb;
+            color: var(--maroon);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card h3 {
+            font-size: 27px;
+            font-weight: 800;
+            color: var(--dark-maroon);
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            font-size: 12px;
+            color: #888;
+            margin: 0;
+        }
+
+        /* MAIN CARD */
+        .main-card {
+            background: white;
+            border-radius: 17px;
+            box-shadow: 0 5px 30px rgba(0,0,0,.05);
+            overflow: hidden;
+        }
+
+        .main-card-header {
+            padding: 25px;
+            border-bottom: 1px solid #f0e7e7;
+        }
+
+        .main-card-header h4 {
+            color: var(--dark-maroon);
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .main-card-header p {
+            color: #888;
+            font-size: 12px;
+            margin: 5px 0 0;
+        }
+
+        .main-card-body {
+            padding: 25px;
+        }
+
+        /* BUTTON */
+        .btn-maroon {
+            background: var(--maroon);
+            color: white;
+            border: none;
+            border-radius: 9px;
+            padding: 11px 18px;
+            font-size: 12px;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .btn-maroon:hover {
+            background: var(--dark-maroon);
+            color: var(--gold);
+        }
+
+        .btn-outline-maroon {
+            border: 1px solid var(--maroon);
+            color: var(--maroon);
+            background: white;
+            border-radius: 9px;
+            padding: 10px 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .btn-outline-maroon:hover {
+            background: var(--maroon);
+            color: white;
+        }
+
+        /* SEARCH */
+        .form-control,
+        .form-select {
+            border: 1px solid #e8dede;
+            border-radius: 9px;
+            padding: 11px 13px;
+            font-size: 12px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--maroon);
+            box-shadow: 0 0 0 .2rem rgba(114,15,32,.1);
+        }
+
+        /* TABLE */
+        .table {
+            font-size: 12px;
+            vertical-align: middle;
+            min-width: 720px;
+        }
+
+        .table thead th {
+            background: #fff7f2;
+            color: var(--dark-maroon);
+            font-weight: 700;
+            padding: 15px 12px;
+            border-bottom: 1px solid #eee0e0;
+            white-space: nowrap;
+        }
+
+        .table tbody td {
+            padding: 14px 12px;
+            color: #555;
+        }
+
+        .table tbody tr:hover {
+            background: #fffaf8;
+        }
+
+        .avatar {
+            width: 37px;
+            height: 37px;
+            border-radius: 50%;
+            display: inline-grid;
+            place-items: center;
+            background: #f8e9eb;
+            color: var(--maroon);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .status-badge {
+            background: #e5f6ec;
+            color: #18864b;
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .action-btn {
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            padding: 5px 7px;
+        }
+
+        .edit-btn {
+            color: #d19a32;
+        }
+
+        .delete-btn {
+            color: #c62828;
+        }
+
+        .empty-state {
+            padding: 35px;
+            color: #999;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* MODAL */
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: var(--maroon);
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .modal-body {
+            padding: 25px;
+        }
+
+        .form-label {
+            color: var(--dark-maroon);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #26050c;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        footer p,
+        footer a {
+            color: #cdbfc1;
+            font-size: 12px;
+            line-height: 2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 30px;
+            padding-top: 18px;
+            text-align: center;
+            color: #a99a9c;
+            font-size: 11px;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 45px 0;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .main-card-header,
+            .main-card-body {
+                padding: 18px;
+            }
+
+            .navbar-nav .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/logo-gereja.jpg" alt="Logo Gereja">
+
+            <span>
+                GEREJA AMIN
+                <small class="d-block fw-normal" style="font-size: 10px;">
+                    Jemaat Helefanikha
+                </small>
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Buka navigasi">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="tentang.html">Tentang</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ibadah.html">Jadwal Ibadah</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kegiatan.html">Kegiatan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="galeri.html">Galeri</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="data-jemaat.html">Data Jemaat</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kontak.html">Kontak</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+
+        <span class="section-label" style="color: var(--gold);">
+            Administrasi Gereja
+        </span>
+
+        <h1>Data Jemaat</h1>
+
+        <p>
+            Pengelolaan informasi jemaat Gereja AMIN Jemaat
+            Helefanikha untuk mendukung administrasi dan pelayanan gereja.
+        </p>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Beranda</a>
+                </li>
+                <li class="breadcrumb-item active">Data Jemaat</li>
+            </ol>
+        </nav>
+
+    </div>
+</section>
+
+
+<!-- MAIN CONTENT -->
+<section class="section-padding">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-label">Informasi Jemaat</span>
+
+            <h2 class="section-title">Manajemen Data Jemaat</h2>
+
+            <div class="gold-line"></div>
+
+            <p class="text-muted mx-auto"
+               style="font-size: 13px; max-width: 650px; line-height: 1.8;">
+                Halaman ini merupakan contoh sistem administrasi jemaat.
+                Data dapat ditambahkan, diubah, dicari, dan dihapus.
+            </p>
+        </div>
+
+
+        <!-- STATISTIK -->
+        <div class="row g-3 mb-4">
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+
+                    <h3 id="totalJemaat">0</h3>
+                    <p>Total Jemaat</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-gender-male"></i>
+                    </div>
+
+                    <h3 id="totalLaki">0</h3>
+                    <p>Jemaat Laki-laki</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="bi bi-gender-female"></i>
+                    </div>
+
+                    <h3 id="totalPerempuan">0</h3>
+                    <p>Jemaat Perempuan</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- DATA TABLE -->
+        <div class="main-card">
+
+            <div class="main-card-header">
+
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+
+                    <div>
+                        <h4>
+                            <i class="bi bi-card-list me-2"
+                               style="color: var(--maroon);"></i>
+                            Daftar Data Jemaat
+                        </h4>
+
+                        <p>Informasi anggota jemaat Gereja AMIN.</p>
+                    </div>
+
+                    <button class="btn btn-maroon"
+                            onclick="bukaModalTambah()">
+
+                        <i class="bi bi-person-plus-fill me-2"></i>
+                        Tambah Jemaat
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="main-card-body">
+
+                <!-- SEARCH DAN FILTER -->
+                <div class="row g-3 mb-4">
+
+                    <div class="col-lg-6">
+                        <div class="input-group">
+
+                            <span class="input-group-text bg-white">
+                                <i class="bi bi-search"
+                                   style="color: var(--maroon);"></i>
+                            </span>
+
+                            <input type="text"
+                                   class="form-control"
+                                   id="searchInput"
+                                   placeholder="Cari nama jemaat..."
+                                   oninput="tampilkanData()">
+
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <select class="form-select"
+                                id="filterGender"
+                                onchange="tampilkanData()">
+
+                            <option value="">Semua Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+
+                        <button class="btn btn-outline-maroon w-100"
+                                onclick="resetFilter()">
+
+                            <i class="bi bi-arrow-counterclockwise me-1"></i>
+                            Reset Filter
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TABLE -->
+                <div class="table-responsive">
+
+                    <table class="table table-hover">
+
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Jemaat</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Usia</th>
+                                <th>Alamat</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="dataJemaatBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mt-3">
+
+                    <small class="text-muted" id="jumlahData">
+                        Menampilkan 0 data
+                    </small>
+
+                    <small class="text-muted">
+                        Data contoh untuk demonstrasi
+                    </small>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="alert alert-warning mt-4"
+             style="font-size: 12px; line-height: 1.8;">
+
+            <i class="bi bi-shield-lock-fill me-2"></i>
+
+            <strong>Perhatian:</strong>
+            Data jemaat merupakan informasi pribadi. Halaman ini
+            hanya demonstrasi dan belum memiliki autentikasi admin
+            maupun database server. Jangan masukkan NIK, alamat lengkap,
+            nomor telepon, atau data sensitif jemaat yang sebenarnya.
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MODAL TAMBAH / EDIT -->
+<div class="modal fade" id="jemaatModal" tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h5 class="modal-title" id="modalTitle">
+                    Tambah Data Jemaat
+                </h5>
+
+                <button type="button"
+                        class="btn-close btn-close-white"
+                        data-bs-dismiss="modal"
+                        aria-label="Tutup"></button>
+
+            </div>
+
+
+            <div class="modal-body">
+
+                <form id="jemaatForm">
+
+                    <input type="hidden" id="editId">
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Nama Jemaat
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="nama"
+                               placeholder="Masukkan nama jemaat"
+                               maxlength="80"
+                               required>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Jenis Kelamin
+                        </label>
+
+                        <select class="form-select"
+                                id="gender"
+                                required>
+
+                            <option value="">Pilih jenis kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Usia
+                        </label>
+
+                        <input type="number"
+                               class="form-control"
+                               id="usia"
+                               placeholder="Masukkan usia"
+                               min="0"
+                               max="120"
+                               required>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Wilayah / Alamat Singkat
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               id="alamat"
+                               placeholder="Contoh: Helefanikha"
+                               maxlength="100"
+                               required>
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Status Jemaat
+                        </label>
+
+                        <select class="form-select"
+                                id="status"
+                                required>
+
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Aktif">Tidak Aktif</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button type="submit"
+                            class="btn btn-maroon w-100">
+
+                        <i class="bi bi-save me-2"></i>
+                        Simpan Data
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+
+                <h5>
+                    <i class="bi bi-cross me-2"
+                       style="color: var(--gold);"></i>
+                    GEREJA AMIN
+                </h5>
+
+                <p>
+                    Gereja AMIN Jemaat Helefanikha menjadi tempat
+                    persekutuan, pertumbuhan iman, pelayanan,
+                    dan kebersamaan dalam kasih Tuhan.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-6">
+
+                <h5>Menu</h5>
+
+                <p><a href="index.html">Beranda</a></p>
+                <p><a href="tentang.html">Tentang Kami</a></p>
+                <p><a href="ibadah.html">Jadwal Ibadah</a></p>
+                <p><a href="kegiatan.html">Kegiatan</a></p>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5>Informasi</h5>
+
+                <p><a href="galeri.html">Galeri</a></p>
+                <p><a href="data-jemaat.html">Data Jemaat</a></p>
+                <p><a href="kontak.html">Kontak</a></p>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5>Lokasi Gereja</h5>
+
+                <p>
+                    <i class="bi bi-geo-alt-fill me-2"
+                       style="color: var(--gold);"></i>
+                    Jemaat Helefanikha
+                </p>
+
+                <p>
+                    <i class="bi bi-heart-fill me-2"
+                       style="color: var(--gold);"></i>
+                    Melayani dengan Kasih
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            &copy; 2026 Gereja AMIN Jemaat Helefanikha.
+            Semua Hak Dilindungi.
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- JAVASCRIPT DATA JEMAAT -->
+<script>
+
+    const STORAGE_KEY = 'gereja_amin_demo_jemaat';
+
+    // Data awal hanya untuk contoh tampilan.
+    const dataContoh = [
+        {
+            id: 1,
+            nama: 'Contoh Jemaat Satu',
+            gender: 'Laki-laki',
+            usia: 35,
+            alamat: 'Wilayah A',
+            status: 'Aktif'
+        },
+        {
+            id: 2,
+            nama: 'Contoh Jemaat Dua',
+            gender: 'Perempuan',
+            usia: 28,
+            alamat: 'Wilayah B',
+            status: 'Aktif'
+        },
+        {
+            id: 3,
+            nama: 'Contoh Jemaat Tiga',
+            gender: 'Laki-laki',
+            usia: 42,
+            alamat: 'Wilayah A',
+            status: 'Aktif'
+        },
+        {
+            id: 4,
+            nama: 'Contoh Jemaat Empat',
+            gender: 'Perempuan',
+            usia: 31,
+            alamat: 'Wilayah C',
+            status: 'Tidak Aktif'
+        }
+    ];
+
+    let jemaat = JSON.parse(localStorage.getItem(STORAGE_KEY));
+
+    if (!Array.isArray(jemaat)) {
+        jemaat = dataContoh;
+        simpanKeBrowser();
+    }
+
+    const modal = new bootstrap.Modal(
+        document.getElementById('jemaatModal')
+    );
+
+
+    // SIMPAN DATA KE LOCAL STORAGE
+    function simpanKeBrowser() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(jemaat));
+    }
+
+
+    // TAMPILKAN DATA
+    function tampilkanData() {
+
+        const tbody = document.getElementById('dataJemaatBody');
+        const keyword = document.getElementById('searchInput')
+            .value.toLowerCase().trim();
+
+        const gender = document.getElementById('filterGender').value;
+
+        const hasil = jemaat.filter(item => {
+
+            const cocokNama = item.nama.toLowerCase().includes(keyword);
+            const cocokGender = !gender || item.gender === gender;
+
+            return cocokNama && cocokGender;
+
+        });
+
+        tbody.innerHTML = '';
+
+        if (hasil.length === 0) {
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7">
+                        <div class="empty-state">
+                            <i class="bi bi-search fs-2 d-block mb-2"></i>
+                            Data jemaat tidak ditemukan.
+                        </div>
+                    </td>
+                </tr>
+            `;
+
+        } else {
+
+            hasil.forEach((item, index) => {
+
+                const inisial = item.nama.charAt(0).toUpperCase();
+
+                const statusClass = item.status === 'Aktif'
+                    ? 'status-badge'
+                    : 'badge bg-secondary';
+
+                const tr = document.createElement('tr');
+
+                const values = [
+                    String(index + 1),
+                    item.nama,
+                    item.gender,
+                    String(item.usia) + ' tahun',
+                    item.alamat,
+                    item.status
+                ];
+
+                values.forEach((value, cellIndex) => {
+
+                    const td = document.createElement('td');
+
+                    if (cellIndex === 1) {
+
+                        const avatar = document.createElement('span');
+                        avatar.className = 'avatar';
+                        avatar.textContent = inisial;
+
+                        td.appendChild(avatar);
+                        td.appendChild(document.createTextNode(value));
+
+                    } else if (cellIndex === 5) {
+
+                        const badge = document.createElement('span');
+                        badge.className = statusClass;
+                        badge.textContent = value;
+                        td.appendChild(badge);
+
+                    } else {
+
+                        td.textContent = value;
+
+                    }
+
+                    tr.appendChild(td);
+
+                });
+
+
+                const aksi = document.createElement('td');
+
+                const editButton = document.createElement('button');
+                editButton.className = 'action-btn edit-btn';
+                editButton.type = 'button';
+                editButton.title = 'Edit';
+                editButton.innerHTML = '<i class="bi bi-pencil-square"></i>';
+                editButton.addEventListener('click', () => editJemaat(item.id));
+
+                const deleteButton = document.createElement('button');
+                deleteButton.className = 'action-btn delete-btn';
+                deleteButton.type = 'button';
+                deleteButton.title = 'Hapus';
+                deleteButton.innerHTML = '<i class="bi bi-trash3"></i>';
+                deleteButton.addEventListener('click', () => hapusJemaat(item.id));
+
+                aksi.appendChild(editButton);
+                aksi.appendChild(deleteButton);
+
+                tr.appendChild(aksi);
+
+                tbody.appendChild(tr);
+
+            });
+
+        }
+
+        document.getElementById('jumlahData').textContent =
+            `Menampilkan ${hasil.length} dari ${jemaat.length} data`;
+
+        perbaruiStatistik();
+
+    }
+
+
+    // PERBARUI STATISTIK
+    function perbaruiStatistik() {
+
+        document.getElementById('totalJemaat').textContent =
+            jemaat.length;
+
+        document.getElementById('totalLaki').textContent =
+            jemaat.filter(item => item.gender === 'Laki-laki').length;
+
+        document.getElementById('totalPerempuan').textContent =
+            jemaat.filter(item => item.gender === 'Perempuan').length;
+
+    }
+
+
+    // BUKA MODAL TAMBAH
+    function bukaModalTambah() {
+
+        document.getElementById('jemaatForm').reset();
+        document.getElementById('editId').value = '';
+        document.getElementById('modalTitle').textContent =
+            'Tambah Data Jemaat';
+
+        modal.show();
+
+    }
+
+
+    // TAMBAH / EDIT DATA
+    document.getElementById('jemaatForm').addEventListener('submit', function(e) {
+
+        e.preventDefault();
+
+        const id = document.getElementById('editId').value;
+
+        const dataBaru = {
+
+            id: id ? Number(id) : Date.now(),
+
+            nama: document.getElementById('nama').value.trim(),
+
+            gender: document.getElementById('gender').value,
+
+            usia: Number(document.getElementById('usia').value),
+
+            alamat: document.getElementById('alamat').value.trim(),
+
+            status: document.getElementById('status').value
+
+        };
+
+        if (
+            !dataBaru.nama ||
+            !dataBaru.gender ||
+            !dataBaru.alamat ||
+            !Number.isInteger(dataBaru.usia) ||
+            dataBaru.usia < 0 ||
+            dataBaru.usia > 120
+        ) {
+            alert('Periksa kembali data yang Anda masukkan.');
+            return;
+        }
+
+        if (id) {
+
+            const index = jemaat.findIndex(item => item.id === Number(id));
+
+            if (index !== -1) {
+                jemaat[index] = dataBaru;
+            }
+
+        } else {
+
+            jemaat.push(dataBaru);
+
+        }
+
+        simpanKeBrowser();
+        tampilkanData();
+        modal.hide();
+
+        this.reset();
+
+        alert('Data jemaat berhasil disimpan pada browser ini.');
+
+    });
+
+
+    // EDIT DATA
+    function editJemaat(id) {
+
+        const item = jemaat.find(data => data.id === id);
+
+        if (!item) return;
+
+        document.getElementById('editId').value = item.id;
+        document.getElementById('nama').value = item.nama;
+        document.getElementById('gender').value = item.gender;
+        document.getElementById('usia').value = item.usia;
+        document.getElementById('alamat').value = item.alamat;
+        document.getElementById('status').value = item.status;
+
+        document.getElementById('modalTitle').textContent =
+            'Edit Data Jemaat';
+
+        modal.show();
+
+    }
+
+
+    // HAPUS DATA
+    function hapusJemaat(id) {
+
+        const konfirmasi = confirm(
+            'Apakah Anda yakin ingin menghapus data jemaat ini?'
+        );
+
+        if (!konfirmasi) return;
+
+        jemaat = jemaat.filter(item => item.id !== id);
+
+        simpanKeBrowser();
+        tampilkanData();
+
+        alert('Data berhasil dihapus.');
+
+    }
+
+
+    // RESET FILTER
+    function resetFilter() {
+
+        document.getElementById('searchInput').value = '';
+        document.getElementById('filterGender').value = '';
+
+        tampilkanData();
+
+    }
+
+
+    // TAMPILKAN PERTAMA KALI
+    tampilkanData();
+
+</script>
+
+</body>
+</html>

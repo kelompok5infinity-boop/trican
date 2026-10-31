@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Pelayanan | Gereja AMIN Jemaat Helefanikha</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --maroon: #720f20;
+            --dark-maroon: #4b0915;
+            --gold: #d9ad55;
+            --cream: #fffaf2;
+            --text: #333333;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--maroon);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--gold);
+        }
+
+        .navbar-brand img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            padding: 3px;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,.85);
+            font-size: 13px;
+            font-weight: 500;
+            margin-left: 12px;
+            transition: .3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .page-hero {
+            min-height: 330px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(50, 4, 14, .85), rgba(50, 4, 14, .85)),
+                url('assets/gereja.jpg') center/cover no-repeat;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(30px, 5vw, 46px);
+            font-weight: 800;
+        }
+
+        .page-hero p {
+            color: #f0e5e5;
+            max-width: 680px;
+            margin: 15px auto 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .breadcrumb {
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .breadcrumb-item,
+        .breadcrumb-item a {
+            color: #f1d99e;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: white;
+        }
+
+        /* SECTION */
+        .section-padding {
+            padding: 70px 0;
+        }
+
+        .section-label {
+            color: var(--maroon);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--dark-maroon);
+            font-size: 31px;
+            font-weight: 800;
+            margin-top: 8px;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 4px;
+            background: var(--gold);
+            margin: 15px auto 20px;
+            border-radius: 5px;
+        }
+
+        .section-description {
+            color: #777;
+            font-size: 13px;
+            line-height: 1.8;
+            max-width: 680px;
+            margin: auto;
+        }
+
+        /* INTRO CARD */
+        .intro-card {
+            background: linear-gradient(120deg, var(--dark-maroon), var(--maroon));
+            color: white;
+            border-radius: 18px;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-card h3 {
+            font-weight: 800;
+            font-size: 23px;
+        }
+
+        .intro-card p {
+            color: #f1dddd;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .intro-icon {
+            font-size: 65px;
+            color: var(--gold);
+            opacity: .85;
+        }
+
+        /* SCHEDULE CARD */
+        .schedule-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+            height: 100%;
+            transition: .3s;
+            border: 1px solid #f3e8e8;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,.09);
+        }
+
+        .schedule-top {
+            background: #fff5f2;
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .schedule-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--maroon);
+            color: white;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            font-size: 23px;
+            flex-shrink: 0;
+        }
+
+        .schedule-top h5 {
+            color: var(--dark-maroon);
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 5px;
+        }
+
+        .schedule-top small {
+            color: #888;
+            font-size: 11px;
+        }
+
+        .schedule-body {
+            padding: 22px;
+        }
+
+        .schedule-detail {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .schedule-detail i {
+            color: var(--maroon);
+            font-size: 16px;
+            width: 20px;
+        }
+
+        .schedule-detail strong {
+            color: var(--dark-maroon);
+        }
+
+        .schedule-footer {
+            padding: 12px 22px;
+            border-top: 1px solid #f1e8e8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-badge {
+            background: #f8e9eb;
+            color: var(--maroon);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* FILTER */
+        .filter-btn {
+            border: 1px solid #e5d8d8;
+            background: white;
+            color: var(--maroon);
+            border-radius: 30px;
+            padding: 9px 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin: 4px;
+            transition: .3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--maroon);
+            color: white;
+            border-color: var(--maroon);
+        }
+
+        .schedule-item.hide {
+            display: none;
+        }
+
+        /* TABLE */
+        .table-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 25px rgba(0,0,0,.05);
+        }
+
+        .table {
+            min-width: 650px;
+            vertical-align: middle;
+            font-size: 12px;
+        }
+
+        .table thead th {
+            background: #fff5f2;
+            color: var(--dark-maroon);
+            padding: 15px;
+            white-space: nowrap;
+        }
+
+        .table tbody td {
+            padding: 14px 15px;
+            color: #666;
+        }
+
+        /* INFO */
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(0,0,0,.04);
+        }
+
+        .info-card i {
+            color: var(--maroon);
+            font-size: 28px;
+        }
+
+        .info-card h5 {
+            color: var(--dark-maroon);
+            font-size: 15px;
+            font-weight: 700;
+            margin: 15px 0 8px;
+        }
+
+        .info-card p {
+            color: #777;
+            font-size: 12px;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        /* INVITATION */
+        .invitation {
+            background: linear-gradient(120deg, var(--dark-maroon), var(--maroon));
+            color: white;
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        .invitation h2 {
+            font-weight: 800;
+            font-size: 28px;
+        }
+
+        .invitation p {
+            color: #f1dddd;
+            font-size: 13px;
+            margin: 15px auto 25px;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--dark-maroon);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 700;
+            font-size: 12px;
+            text-decoration: none;
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .btn-gold:hover {
+            background: white;
+            color: var(--maroon);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #26050c;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        footer p,
+        footer a {
+            color: #cdbfc1;
+            font-size: 12px;
+            line-height: 2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 30px;
+            padding-top: 18px;
+            text-align: center;
+            color: #a99a9c;
+            font-size: 11px;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 50px 0;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .intro-card {
+                padding: 25px;
+            }
+
+            .intro-icon {
+                font-size: 45px;
+            }
+
+            .navbar-nav .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/logo.jpg" alt="Logo">
+
+            <span>
+                GEREJA AMIN
+                <small class="d-block fw-normal" style="font-size: 10px;">
+                    Jemaat Helefanikha
+                </small>
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Buka navigasi">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="tentang.html">Tentang</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ibadah.html">Jadwal Ibadah</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kegiatan.html">Kegiatan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="jadwal-pelayanan.html">Pelayanan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="galeri.html">Galeri</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="data-jemaat.html">Data Jemaat</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kontak.html">Kontak</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+
+        <span class="section-label" style="color: var(--gold);">
+            Pelayanan Gereja
+        </span>
+
+        <h1>Jadwal Pelayanan</h1>
+
+        <p>
+            Informasi jadwal pelayanan dan pembagian tugas
+            pelayanan Gereja AMIN Jemaat Helefanikha.
+            Bersama melayani dengan iman, kasih, dan ketulusan.
+        </p>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Beranda</a>
+                </li>
+                <li class="breadcrumb-item active">
+                    Jadwal Pelayanan
+                </li>
+            </ol>
+        </nav>
+
+    </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="section-padding pb-4">
+    <div class="container">
+
+        <div class="intro-card">
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-8">
+                    <span class="section-label" style="color: var(--gold);">
+                        Melayani Adalah Panggilan
+                    </span>
+
+                    <h3 class="mt-3">
+                        Bersama Membangun Pelayanan Gereja
+                    </h3>
+
+                    <p class="mb-0">
+                        Pelayanan merupakan bagian penting dalam kehidupan
+                        bergereja. Melalui pembagian jadwal pelayanan,
+                        setiap pelayan dapat mengambil bagian sesuai
+                        tanggung jawab dan karunia yang dimiliki.
+                    </p>
+                </div>
+
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-people-fill intro-icon"></i>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- JADWAL PELAYANAN -->
+<section class="section-padding">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-label">Agenda Pelayanan</span>
+
+            <h2 class="section-title">Daftar Jadwal Pelayanan</h2>
+
+            <div class="gold-line"></div>
+
+            <p class="section-description">
+                Berikut contoh pembagian jadwal pelayanan mingguan
+                berdasarkan jenis pelayanan gereja.
+            </p>
+        </div>
+
+
+        <!-- SEARCH -->
+        <div class="row justify-content-center mb-4">
+
+            <div class="col-lg-6">
+
+                <div class="input-group">
+
+                    <span class="input-group-text bg-white">
+                        <i class="bi bi-search"
+                           style="color: var(--maroon);"></i>
+                    </span>
+
+                    <input type="text"
+                           class="form-control"
+                           id="searchSchedule"
+                           placeholder="Cari jenis pelayanan..."
+                           oninput="filterJadwal()">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FILTER -->
+        <div class="text-center mb-4">
+
+            <button class="filter-btn active" data-filter="all">
+                Semua
+            </button>
+
+            <button class="filter-btn" data-filter="ibadah">
+                Ibadah
+            </button>
+
+            <button class="filter-btn" data-filter="pemuda">
+                Pemuda
+            </button>
+
+            <button class="filter-btn" data-filter="anak">
+                Sekolah Minggu
+            </button>
+
+            <button class="filter-btn" data-filter="pelayanan">
+                Pelayanan Umum
+            </button>
+
+        </div>
+
+
+        <!-- SCHEDULE CARDS -->
+        <div class="row g-4" id="scheduleContainer">
+
+
+            <!-- 1 -->
+            <div class="col-lg-4 col-md-6 schedule-item"
+                 data-category="ibadah">
+
+                <div class="schedule-card">
+
+                    <div class="schedule-top">
+
+                        <div class="schedule-icon">
+                            <i class="bi bi-book-half"></i>
+                        </div>
+
+                        <div>
+                            <h5>Pelayanan Ibadah Minggu</h5>
+                            <small>Ibadah Umum</small>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-body">
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-calendar3"></i>
+                            <span><strong>Hari:</strong> Minggu</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-clock"></i>
+                            <span><strong>Waktu:</strong> 09.00 WIB</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-person"></i>
+                            <span><strong>Petugas:</strong> Tim Pelayanan</span>
+                        </div>
+
+                        <div class="schedule-detail mb-0">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><strong>Tempat:</strong> Gereja</span>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-footer">
+                        <span class="category-badge">Ibadah</span>
+                        <i class="bi bi-calendar-check text-success"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 2 -->
+            <div class="col-lg-4 col-md-6 schedule-item"
+                 data-category="pemuda">
+
+                <div class="schedule-card">
+
+                    <div class="schedule-top">
+
+                        <div class="schedule-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <div>
+                            <h5>Persekutuan Pemuda</h5>
+                            <small>Pelayanan Pemuda</small>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-body">
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-calendar3"></i>
+                            <span><strong>Hari:</strong> Sabtu</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-clock"></i>
+                            <span><strong>Waktu:</strong> 19.00 WIB</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-person"></i>
+                            <span><strong>Petugas:</strong> Pengurus Pemuda</span>
+                        </div>
+
+                        <div class="schedule-detail mb-0">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><strong>Tempat:</strong> Gereja</span>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-footer">
+                        <span class="category-badge">Pemuda</span>
+                        <i class="bi bi-calendar-check text-success"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 3 -->
+            <div class="col-lg-4 col-md-6 schedule-item"
+                 data-category="anak">
+
+                <div class="schedule-card">
+
+                    <div class="schedule-top">
+
+                        <div class="schedule-icon">
+                            <i class="bi bi-stars"></i>
+                        </div>
+
+                        <div>
+                            <h5>Sekolah Minggu</h5>
+                            <small>Pelayanan Anak</small>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-body">
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-calendar3"></i>
+                            <span><strong>Hari:</strong> Minggu</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-clock"></i>
+                            <span><strong>Waktu:</strong> 08.00 WIB</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-person"></i>
+                            <span><strong>Petugas:</strong> Guru Sekolah Minggu</span>
+                        </div>
+
+                        <div class="schedule-detail mb-0">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><strong>Tempat:</strong> Gereja</span>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-footer">
+                        <span class="category-badge">Anak</span>
+                        <i class="bi bi-calendar-check text-success"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 4 -->
+            <div class="col-lg-4 col-md-6 schedule-item"
+                 data-category="pelayanan">
+
+                <div class="schedule-card">
+
+                    <div class="schedule-top">
+
+                        <div class="schedule-icon">
+                            <i class="bi bi-music-note-beamed"></i>
+                        </div>
+
+                        <div>
+                            <h5>Tim Pujian dan Musik</h5>
+                            <small>Pelayanan Musik</small>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-body">
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-calendar3"></i>
+                            <span><strong>Hari:</strong> Minggu</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-clock"></i>
+                            <span><strong>Waktu:</strong> Sebelum Ibadah</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-person"></i>
+                            <span><strong>Petugas:</strong> Tim Musik</span>
+                        </div>
+
+                        <div class="schedule-detail mb-0">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><strong>Tempat:</strong> Gereja</span>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-footer">
+                        <span class="category-badge">Pelayanan Umum</span>
+                        <i class="bi bi-calendar-check text-success"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 5 -->
+            <div class="col-lg-4 col-md-6 schedule-item"
+                 data-category="ibadah">
+
+                <div class="schedule-card">
+
+                    <div class="schedule-top">
+
+                        <div class="schedule-icon">
+                            <i class="bi bi-book"></i>
+                        </div>
+
+                        <div>
+                            <h5>Persekutuan Doa</h5>
+                            <small>Doa Bersama</small>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-body">
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-calendar3"></i>
+                            <span><strong>Hari:</strong> Rabu</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-clock"></i>
+                            <span><strong>Waktu:</strong> 18.30 WIB</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-person"></i>
+                            <span><strong>Petugas:</strong> Tim Doa</span>
+                        </div>
+
+                        <div class="schedule-detail mb-0">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><strong>Tempat:</strong> Gereja</span>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-footer">
+                        <span class="category-badge">Ibadah</span>
+                        <i class="bi bi-calendar-check text-success"></i>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <!-- 6 -->
+            <div class="col-lg-4 col-md-6 schedule-item"
+                 data-category="pelayanan">
+
+                <div class="schedule-card">
+
+                    <div class="schedule-top">
+
+                        <div class="schedule-icon">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+
+                        <div>
+                            <h5>Pelayanan Sosial</h5>
+                            <small>Pelayanan Masyarakat</small>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-body">
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-calendar3"></i>
+                            <span><strong>Hari:</strong> Sesuai Agenda</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-clock"></i>
+                            <span><strong>Waktu:</strong> Menyesuaikan</span>
+                        </div>
+
+                        <div class="schedule-detail">
+                            <i class="bi bi-person"></i>
+                            <span><strong>Petugas:</strong> Tim Sosial</span>
+                        </div>
+
+                        <div class="schedule-detail mb-0">
+                            <i class="bi bi-geo-alt"></i>
+                            <span><strong>Tempat:</strong> Sesuai Kegiatan</span>
+                        </div>
+
+                    </div>
+
+                    <div class="schedule-footer">
+                        <span class="category-badge">Pelayanan Umum</span>
+                        <i class="bi bi-calendar-check text-success"></i>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-muted text-center mt-4"
+           style="font-size: 11px;">
+            * Jadwal dan nama petugas di atas merupakan contoh.
+            Silakan sesuaikan dengan keputusan pengurus gereja.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- TABEL PEMBAGIAN TUGAS -->
+<section class="section-padding pt-0">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-label">Pembagian Tugas</span>
+
+            <h2 class="section-title">Tugas Pelayanan Mingguan</h2>
+
+            <div class="gold-line"></div>
+
+            <p class="section-description">
+                Contoh tabel pembagian tugas pelayanan yang dapat
+                disesuaikan oleh pengurus gereja.
+            </p>
+        </div>
+
+
+        <div class="table-card">
+
+            <div class="table-responsive">
+
+                <table class="table table-hover">
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Jenis Pelayanan</th>
+                            <th>Tugas</th>
+                            <th>Petugas</th>
+                            <th>Hari</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>01</td>
+                            <td>Ibadah Minggu</td>
+                            <td>Pemimpin ibadah</td>
+                            <td>Tim Pelayanan</td>
+                            <td>Minggu</td>
+                        </tr>
+
+                        <tr>
+                            <td>02</td>
+                            <td>Pujian dan Musik</td>
+                            <td>Memimpin pujian</td>
+                            <td>Tim Musik</td>
+                            <td>Minggu</td>
+                        </tr>
+
+                        <tr>
+                            <td>03</td>
+                            <td>Sekolah Minggu</td>
+                            <td>Mengajar anak-anak</td>
+                            <td>Guru Sekolah Minggu</td>
+                            <td>Minggu</td>
+                        </tr>
+
+                        <tr>
+                            <td>04</td>
+                            <td>Persekutuan Pemuda</td>
+                            <td>Koordinasi kegiatan pemuda</td>
+                            <td>Pengurus Pemuda</td>
+                            <td>Sabtu</td>
+                        </tr>
+
+                        <tr>
+                            <td>05</td>
+                            <td>Persekutuan Doa</td>
+                            <td>Memimpin doa bersama</td>
+                            <td>Tim Doa</td>
+                            <td>Rabu</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- INFORMASI -->
+<section class="section-padding pt-0">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-label">Informasi Penting</span>
+
+            <h2 class="section-title">Ketentuan Pelayanan</h2>
+
+            <div class="gold-line"></div>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+
+                    <i class="bi bi-clock-history"></i>
+
+                    <h5>Datang Tepat Waktu</h5>
+
+                    <p>
+                        Setiap petugas diharapkan hadir lebih awal
+                        agar persiapan pelayanan dapat berjalan
+                        dengan baik.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+
+                    <i class="bi bi-people-fill"></i>
+
+                    <h5>Kerja Sama Tim</h5>
+
+                    <p>
+                        Setiap pelayan diharapkan saling membantu
+                        dan bekerja sama untuk mendukung
+                        kelancaran kegiatan gereja.
+                    </p>
+
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+
+                    <i class="bi bi-heart-fill"></i>
+
+                    <h5>Melayani dengan Kasih</h5>
+
+                    <p>
+                        Laksanakan setiap tugas pelayanan
+                        dengan tulus, bertanggung jawab,
+                        dan penuh kasih.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- INVITATION -->
+<section class="invitation">
+    <div class="container">
+
+        <i class="bi bi-heart-fill mb-3"
+           style="font-size: 38px; color: var(--gold);"></i>
+
+        <h2>Melayani dengan Sepenuh Hati</h2>
+
+        <p>
+            Setiap pelayanan memiliki arti dan tujuan.
+            Mari mengambil bagian dalam pelayanan gereja
+            untuk membangun iman dan kebersamaan jemaat.
+        </p>
+
+        <a href="kontak.html" class="btn-gold">
+            Hubungi Pengurus
+            <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+
+                <h5>
+                    <i class="bi bi-cross me-2"
+                       style="color: var(--gold);"></i>
+                    GEREJA AMIN
+                </h5>
+
+                <p>
+                    Gereja AMIN Jemaat Helefanikha menjadi tempat
+                    persekutuan, pertumbuhan iman, pelayanan,
+                    dan kebersamaan dalam kasih Tuhan.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-2 col-md-6">
+
+                <h5>Menu</h5>
+
+                <p><a href="index.html">Beranda</a></p>
+                <p><a href="tentang.html">Tentang Kami</a></p>
+                <p><a href="ibadah.html">Jadwal Ibadah</a></p>
+                <p><a href="kegiatan.html">Kegiatan</a></p>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5>Informasi</h5>
+
+                <p><a href="jadwal-pelayanan.html">Jadwal Pelayanan</a></p>
+                <p><a href="galeri.html">Galeri</a></p>
+                <p><a href="data-jemaat.html">Data Jemaat</a></p>
+                <p><a href="kontak.html">Kontak</a></p>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <h5>Lokasi Gereja</h5>
+
+                <p>
+                    <i class="bi bi-geo-alt-fill me-2"
+                       style="color: var(--gold);"></i>
+                    Jemaat Helefanikha
+                </p>
+
+                <p>
+                    <i class="bi bi-heart-fill me-2"
+                       style="color: var(--gold);"></i>
+                    Melayani dengan Kasih
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            &copy; 2026 Gereja AMIN Jemaat Helefanikha.
+            Semua Hak Dilindungi.
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- FILTER DAN PENCARIAN -->
+<script>
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const scheduleItems = document.querySelectorAll('.schedule-item');
+    const searchInput = document.getElementById('searchSchedule');
+
+    let activeFilter = 'all';
+
+    function filterJadwal() {
+
+        const keyword = searchInput.value.toLowerCase().trim();
+
+        scheduleItems.forEach(item => {
+
+            const category = item.getAttribute('data-category');
+            const text = item.textContent.toLowerCase();
+
+            const cocokKategori =
+                activeFilter === 'all' || category === activeFilter;
+
+            const cocokPencarian =
+                text.includes(keyword);
+
+            if (cocokKategori && cocokPencarian) {
+                item.classList.remove('hide');
+            } else {
+                item.classList.add('hide');
+            }
+
+        });
+
+    }
+
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener('click', function() {
+
+            filterButtons.forEach(btn =>
+                btn.classList.remove('active')
+            );
+
+            this.classList.add('active');
+
+            activeFilter = this.getAttribute('data-filter');
+
+            filterJadwal();
+
+        });
+
+    });
+
+</script>
+
+</body>
+</html>

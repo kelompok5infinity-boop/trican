@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeri | Gereja AMIN Jemaat Helefanikha</title>
+
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --maroon: #720f20;
+            --dark-maroon: #4b0915;
+            --gold: #d9ad55;
+            --cream: #fffaf2;
+            --text: #333333;
+        }
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: var(--maroon);
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--gold);
+        }
+
+        .navbar-brand img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            padding: 3px;
+        }
+
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,.85);
+            font-size: 13px;
+            font-weight: 500;
+            margin-left: 12px;
+            transition: .3s;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--gold);
+        }
+
+        /* HERO */
+        .page-hero {
+            min-height: 330px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            background:
+                linear-gradient(rgba(50, 4, 14, .82), rgba(50, 4, 14, .82)),
+                url('assets/gereja.jpg') center/cover no-repeat;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 800;
+        }
+
+        .page-hero p {
+            color: #f0e5e5;
+            max-width: 650px;
+            margin: 15px auto 0;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .breadcrumb {
+            justify-content: center;
+            margin-top: 18px;
+        }
+
+        .breadcrumb-item,
+        .breadcrumb-item a {
+            color: #f1d99e;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .breadcrumb-item.active {
+            color: white;
+        }
+
+        .breadcrumb-item + .breadcrumb-item::before {
+            color: white;
+        }
+
+        /* SECTION */
+        .section-padding {
+            padding: 75px 0;
+        }
+
+        .section-label {
+            color: var(--maroon);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            color: var(--dark-maroon);
+            font-size: 32px;
+            font-weight: 800;
+            margin-top: 8px;
+        }
+
+        .gold-line {
+            width: 65px;
+            height: 4px;
+            background: var(--gold);
+            margin: 15px auto 20px;
+            border-radius: 5px;
+        }
+
+        .section-description {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        /* FILTER */
+        .filter-btn {
+            border: 1px solid #e3d5d5;
+            background: white;
+            color: var(--maroon);
+            border-radius: 30px;
+            padding: 10px 22px;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px;
+            transition: .3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--maroon);
+            color: white;
+            border-color: var(--maroon);
+        }
+
+        /* GALLERY */
+        .gallery-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform .5s ease;
+        }
+
+        .gallery-card:hover .gallery-image {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(54, 4, 15, .92),
+                rgba(54, 4, 15, .05) 75%
+            );
+            opacity: 0;
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            padding: 22px;
+            color: white;
+        }
+
+        .gallery-card:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h5 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 11px;
+            margin: 0;
+            color: #f1dddd;
+        }
+
+        .gallery-overlay i {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: var(--gold);
+            color: var(--dark-maroon);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        /* EMPTY FILTER */
+        .gallery-item.hide {
+            display: none;
+        }
+
+        /* INVITATION */
+        .invitation {
+            background: linear-gradient(120deg, var(--dark-maroon), var(--maroon));
+            color: white;
+            padding: 55px 20px;
+            text-align: center;
+        }
+
+        .invitation h2 {
+            font-weight: 800;
+            font-size: 28px;
+        }
+
+        .invitation p {
+            color: #f1dddd;
+            font-size: 14px;
+            margin: 15px auto 25px;
+            max-width: 650px;
+            line-height: 1.8;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--dark-maroon);
+            padding: 12px 25px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .btn-gold:hover {
+            background: white;
+            color: var(--maroon);
+            transform: translateY(-3px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #26050c;
+            color: white;
+            padding: 55px 0 20px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+
+        footer p,
+        footer a {
+            color: #cdbfc1;
+            font-size: 12px;
+            line-height: 2;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,.12);
+            margin-top: 35px;
+            padding-top: 18px;
+            text-align: center;
+            color: #a99a9c;
+            font-size: 11px;
+        }
+
+        /* MODAL */
+        .modal-content {
+            background: #1e080d;
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+        }
+
+        .modal-caption {
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .section-padding {
+                padding: 55px 0;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .gallery-image {
+                height: 220px;
+            }
+
+            .gallery-overlay {
+                opacity: 1;
+                padding: 15px;
+            }
+
+            .gallery-overlay h5 {
+                font-size: 14px;
+            }
+
+            .navbar-nav .nav-link {
+                margin-left: 0;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/logo-gereja.jpg" alt="Logo Gereja">
+            <span>
+                GEREJA AMIN
+                <small class="d-block fw-normal" style="font-size: 10px;">
+                    Jemaat Helefanikha
+                </small>
+            </span>
+        </a>
+
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu" aria-expanded="false"
+                aria-label="Buka navigasi">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Beranda</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="tentang.html">Tentang</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="ibadah.html">Jadwal Ibadah</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kegiatan.html">Kegiatan</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="galeri.html">Galeri</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="data-jemaat.html">Data Jemaat</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="kontak.html">Kontak</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="page-hero">
+    <div class="container">
+
+        <span class="section-label" style="color: var(--gold);">
+            Dokumentasi Gereja
+        </span>
+
+        <h1>Galeri Gereja</h1>
+
+        <p>
+            Mengabadikan setiap momen kebersamaan, pelayanan,
+            ibadah, dan kegiatan jemaat Gereja AMIN Jemaat Helefanikha.
+        </p>
+
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Beranda</a>
+                </li>
+                <li class="breadcrumb-item active">Galeri</li>
+            </ol>
+        </nav>
+
+    </div>
+</section>
+
+
+<!-- GALLERY SECTION -->
+<section class="section-padding">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <span class="section-label">Momen Kebersamaan</span>
+
+            <h2 class="section-title">Dokumentasi Kegiatan</h2>
+
+            <div class="gold-line"></div>
+
+            <p class="section-description">
+                Berikut adalah dokumentasi berbagai kegiatan dan
+                pelayanan yang berlangsung di Gereja AMIN Jemaat
+                Helefanikha.
+            </p>
+        </div>
+
+
+        <!-- FILTER BUTTON -->
+        <div class="text-center mb-4">
+
+            <button class="filter-btn active" data-filter="all">
+                Semua Foto
+            </button>
+
+            <button class="filter-btn" data-filter="ibadah">
+                Ibadah
+            </button>
+
+            <button class="filter-btn" data-filter="pemuda">
+                Pemuda
+            </button>
+
+            <button class="filter-btn" data-filter="pelayanan">
+                Pelayanan
+            </button>
+
+            <button class="filter-btn" data-filter="perayaan">
+                Perayaan
+            </button>
+
+        </div>
+
+
+        <!-- GALLERY GRID -->
+        <div class="row g-4" id="galleryContainer">
+
+            <!-- FOTO 1 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="ibadah">
+                <div class="gallery-card"
+                     data-image="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1200&q=85"
+                     data-title="Ibadah Minggu">
+
+                    <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=800&q=85"
+                         class="gallery-image" alt="Ilustrasi ibadah gereja">
+
+                    <div class="gallery-overlay">
+                        <i class="bi bi-zoom-in"></i>
+                        <h5>Ibadah Minggu</h5>
+                        <p>Persekutuan dan pujian bersama jemaat</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FOTO 2 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="pemuda">
+                <div class="gallery-card"
+                     data-image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=85"
+                     data-title="Persekutuan Pemuda">
+
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=85"
+                         class="gallery-image" alt="Ilustrasi kebersamaan pemuda">
+
+                    <div class="gallery-overlay">
+                        <i class="bi bi-zoom-in"></i>
+                        <h5>Persekutuan Pemuda</h5>
+                        <p>Kebersamaan dan persaudaraan pemuda</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FOTO 3 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="pelayanan">
+                <div class="gallery-card"
+                     data-image="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1200&q=85"
+                     data-title="Kebersamaan Jemaat">
+
+                    <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=85"
+                         class="gallery-image" alt="Ilustrasi kebersamaan jemaat">
+
+                    <div class="gallery-overlay">
+                        <i class="bi bi-zoom-in"></i>
+                        <h5>Kebersamaan Jemaat</h5>
+                        <p>Membangun kasih dan persaudaraan</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FOTO 4 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="perayaan">
+                <div class="gallery-card"
+                     data-image="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85"
+                     data-title="Perayaan dan Sukacita">
+
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85"
+                         class="gallery-image" alt="Ilustrasi perayaan">
+
+                    <div class="gallery-overlay">
+                        <i class="bi bi-zoom-in"></i>
+                        <h5>Perayaan dan Sukacita</h5>
+                        <p>Momen sukacita dalam kebersamaan</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FOTO 5 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="ibadah">
+                <div class="gallery-card"
+                     data-image="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1200&q=85"
+                     data-title="Pujian dan Penyembahan">
+
+                    <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=800&q=85"
+                         class="gallery-image" alt="Ilustrasi pujian dan penyembahan">
+
+                    <div class="gallery-overlay">
+                        <i class="bi bi-zoom-in"></i>
+                        <h5>Pujian dan Penyembahan</h5>
+                        <p>Memuji dan memuliakan Tuhan</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- FOTO 6 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="pelayanan">
+                <div class="gallery-card"
+                     data-image="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=85"
+                     data-title="Kegiatan Bersama">
+
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=800&q=85"
+                         class="gallery-image" alt="Ilustrasi kegiatan bersama">
+
+                    <div class="gallery-overlay">
+                        <i class="bi bi-zoom-in"></i>
+                        <h5>Kegiatan Bersama</h5>
+                        <p>Melayani dengan kasih dan sukacita</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="text-center text-muted mt-4" style="font-size: 11px;">
+            * Foto di atas merupakan gambar ilustrasi. Ganti dengan
+            dokumentasi asli kegiatan Gereja AMIN Jemaat Helefanikha.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- INVITATION -->
+<section class="invitation">
+    <div class="container">
+
+        <i class="bi bi-camera-fill mb-3"
+           style="font-size: 38px; color: var(--gold);"></i>
+
+        <h2>Setiap Momen Adalah Berkat</h2>
+
+        <p>
+            Mari terus membangun kebersamaan, mempererat persaudaraan,
+            dan melayani Tuhan dengan penuh kasih dalam setiap kegiatan
+            Gereja AMIN Jemaat Helefanikha.
+        </p>
+
+        <a href="kegiatan.html" class="btn-gold">
+            Lihat Kegiatan Kami
+            <i class="bi bi-arrow-right ms-2"></i>
+        </a>
+
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4 col-md-6">
+                <h5>
+                    <i class="bi bi-cross me-2" style="color: var(--gold);"></i>
+                    GEREJA AMIN
+                </h5>
+
+                <p>
+                    Gereja AMIN Jemaat Helefanikha menjadi tempat
+                    persekutuan, pertumbuhan iman, pelayanan,
+                    dan kebersamaan dalam kasih Tuhan.
+                </p>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5>Menu</h5>
+
+                <p><a href="index.html">Beranda</a></p>
+                <p><a href="tentang.html">Tentang Kami</a></p>
+                <p><a href="ibadah.html">Jadwal Ibadah</a></p>
+                <p><a href="kegiatan.html">Kegiatan</a></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Informasi</h5>
+
+                <p><a href="galeri.html">Galeri</a></p>
+                <p><a href="data-jemaat.html">Data Jemaat</a></p>
+                <p><a href="kontak.html">Kontak</a></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Lokasi Gereja</h5>
+
+                <p>
+                    <i class="bi bi-geo-alt-fill me-2"
+                       style="color: var(--gold);"></i>
+                    Jemaat Helefanikha
+                </p>
+
+                <p>
+                    <i class="bi bi-heart-fill me-2"
+                       style="color: var(--gold);"></i>
+                    Melayani dengan Kasih
+                </p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2026 Gereja AMIN Jemaat Helefanikha.
+            Semua Hak Dilindungi.
+        </div>
+
+    </div>
+</footer>
+
+
+<!-- MODAL FOTO -->
+<div class="modal fade" id="galleryModal" tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <button type="button"
+                    class="btn-close btn-close-white ms-auto mt-3 me-3"
+                    data-bs-dismiss="modal"
+                    aria-label="Tutup"></button>
+
+            <img src="" id="modalImage"
+                 class="modal-image" alt="Foto galeri">
+
+            <div class="modal-caption" id="modalCaption"></div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    // FILTER GALERI
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function () {
+
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const filter = this.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+
+                if (filter === 'all' || category === filter) {
+                    item.classList.remove('hide');
+                } else {
+                    item.classList.add('hide');
+                }
+            });
+        });
+    });
+
+
+    // MODAL PERBESAR FOTO
+    const galleryCards = document.querySelectorAll('.gallery-card');
+    const modalImage = document.getElementById('modalImage');
+    const modalCaption = document.getElementById('modalCaption');
+
+    const galleryModal = new bootstrap.Modal(
+        document.getElementById('galleryModal')
+    );
+
+    galleryCards.forEach(card => {
+        card.addEventListener('click', function () {
+
+            const image = this.getAttribute('data-image');
+            const title = this.getAttribute('data-title');
+
+            modalImage.src = image;
+            modalCaption.textContent = title;
+
+            galleryModal.show();
+        });
+    });
+</script>
+
+</body>
+</html>
